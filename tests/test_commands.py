@@ -1,6 +1,6 @@
 import pytest
-import streamlit-localstorage
-from streamlit-localstorage import commands
+import streamlit_localstorage
+from streamlit_localstorage import commands
 from click.testing import CliRunner
 
 
@@ -12,4 +12,4 @@ def runner():
 def test_show_version(runner):
     result = runner.invoke(commands.cli, ["-v"])
     assert result.exit_code == 0
-    assert result.output.strip() == streamlit-localstorage.VERSION
+    assert result.output.strip() == streamlit_localstorage.VERSION

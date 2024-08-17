@@ -12,9 +12,9 @@ from .cache import Cache
 
 class Core:
     def __init__(
-            self,
-            prefix: str = "st_localstorage_",
-            session_state_cache_key: str = "st_localstorage_cache"
+        self,
+        prefix: str = "st_localstorage_",
+        session_state_cache_key: str = "st_localstorage_cache",
     ) -> None:
         # Hide the JS iframes
         self._container = st.container()
