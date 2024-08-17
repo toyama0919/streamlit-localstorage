@@ -18,9 +18,6 @@ class Core:
     ) -> None:
         # Hide the JS iframes
         self._container = st.container()
-        self.logger = get_logger(__name__)
-        self.prefix = prefix
-        self.session_state_cache_key = session_state_cache_key
         with self._container:
             st.html(
                 """
@@ -31,6 +28,10 @@ class Core:
                 </style>
             """
             )
+
+        self.logger = get_logger(__name__)
+        self.prefix = prefix
+        self.session_state_cache_key = session_state_cache_key
 
         if "_ls_unique_keys" not in st.session_state:
             st.session_state["_ls_unique_keys"] = {}
@@ -92,6 +93,22 @@ class Core:
             codes.append(code)
 
         with self._container:
+            self.logger.debug(f"setitems: {codes}")
+            return st_js(
+                "\n".join(codes),
+                key=self.ls_keys.get(st_js_key),
+            )
+
+    def delitems(self, keys: list) -> None:
+        st_js_key = f"delitems_{'_'.join(keys)}"
+        self.ls_keys.set(st_js_key, str(uuid.uuid4()))
+        codes = []
+        for key in keys():
+            code = f"localStorage.removeItem('{self.prefix + key}');"
+            codes.append(code)
+
+        with self._container:
+            self.logger.debug(f"delitems: {codes}")
             return st_js(
                 "\n".join(codes),
                 key=self.ls_keys.get(st_js_key),
