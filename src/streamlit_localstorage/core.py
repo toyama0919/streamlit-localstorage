@@ -103,7 +103,7 @@ class Core:
         st_js_key = f"delitems_{'_'.join(keys)}"
         self.ls_keys.set(st_js_key, str(uuid.uuid4()))
         codes = []
-        for key in keys():
+        for key in keys:
             code = f"localStorage.removeItem('{self.prefix + key}');"
             codes.append(code)
 
