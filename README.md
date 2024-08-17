@@ -3,39 +3,35 @@
 [![PyPI version](https://badge.fury.io/py/streamlit-localstorage.svg)](https://badge.fury.io/py/streamlit-localstorage)
 [![Build Status](https://github.com/toyama0919/streamlit-localstorage/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/toyama0919/streamlit-localstorage/actions/workflows/ci.yml)
 
+Handles localstorage with Streamlit.
 
-Command Line utility for Amazon Aurora.
-
-Support python3 only. (use boto3)
-
-## Settings
-
-```sh
-export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX
-export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-export AWS_DEFAULT_REGION=xx-xxxxxxx-x
-```
-
-* support environment variables and iam role.
+Support python3 only.
 
 ## Examples
 
-#### list instance and cluster
+```python
+import streamlit as st
+from streamlit_localstorage import StreamlitLocalstorage
 
-```bash
-$ streamlit-localstorage list
 
-[instances]
-db01 mysql available db.m3.xlarge  ap-northeast-1c None
-db02 mysql available db.m3.xlarge  ap-northeast-1c None
-db03 mysql available db.m3.large ap-northeast-1c None
-db04 mysql available db.m3.large ap-northeast-1c None
-db05 aurora available db.t2.medium  ap-northeast-1c aurora-cluster
-db06 aurora available db.t2.medium  ap-northeast-1c aurora-cluster
+def main():
+    sl = StreamlitLocalstorage(
+        prefix="st_localstorage_",
+    )
+    v = sl.get_items(keys=["ability", "goals", "a"])
+    st.write(v)
 
-[clusters]
-aurora-cluster available aurora  ['db05', 'db06']
-...
+    # update or create
+    if st.button("setitem"):
+        sl.setitems(data={"a": "A"})
+
+    # delete
+    if st.button("delitem"):
+        sl.delitems(keys=["a"])
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 ## Installation
