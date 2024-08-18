@@ -1,4 +1,4 @@
-from streamlit_localstorage.util import Util
+from streamlit_localstorage_bulk.util import Util
 
 
 class TestUtil(object):

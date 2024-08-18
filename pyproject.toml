@@ -1,5 +1,5 @@
 [project]
-name = "streamlit-localstorage"
+name = "streamlit-localstorage-bulk"
 version = "0.1.0"
 description = "Command Line utility for cost of aws."
 authors = [{ name="Hiroshi Toyama", email="toyama0919@gmail.com" }]
@@ -31,4 +31,4 @@ test = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/toyama0919/streamlit-localstorage"
+"Homepage" = "https://github.com/toyama0919/streamlit-localstorage-bulk"

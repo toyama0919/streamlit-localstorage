@@ -1,9 +1,11 @@
-# streamlit-localstorage
+# streamlit-localstorage-bulk
 
-[![PyPI version](https://badge.fury.io/py/streamlit-localstorage.svg)](https://badge.fury.io/py/streamlit-localstorage)
-[![Build Status](https://github.com/toyama0919/streamlit-localstorage/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/toyama0919/streamlit-localstorage/actions/workflows/ci.yml)
+[![PyPI version](https://badge.fury.io/py/streamlit-localstorage-bulk.svg)](https://badge.fury.io/py/streamlit-localstorage-bulk)
+[![Build Status](https://github.com/toyama0919/streamlit-localstorage-bulk/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/toyama0919/streamlit-localstorage-bulk/actions/workflows/ci.yml)
 
 Handles localstorage with Streamlit.
+
+Significant performance improvements can be expected due to batch javascript execution.
 
 Support python3 only.
 
@@ -11,11 +13,11 @@ Support python3 only.
 
 ```python
 import streamlit as st
-from streamlit_localstorage import StreamlitLocalstorage
+from streamlit_localstorage_bulk import StreamlitLocalstorageBulk
 
 
 def main():
-    sl = StreamlitLocalstorage(
+    sl = StreamlitLocalstorageBulk(
         prefix="st_localstorage_",
     )
     v = sl.get_items(keys=["ability", "goals", "a"])
@@ -37,7 +39,7 @@ if __name__ == "__main__":
 ## Installation
 
 ```sh
-pip install streamlit-localstorage
+pip install streamlit-localstorage-bulk
 ```
 
 ## CI
