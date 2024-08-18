@@ -8,5 +8,5 @@ class TestUtil(object):
     def teardown_method(self, method):
         pass
 
-    def test_pad_zero(self):
+    def test_remove_quote(self):
         assert Util.remove_quote({"a": '"1"'}) == {"a": "1"}
