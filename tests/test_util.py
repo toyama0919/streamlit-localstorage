@@ -9,5 +9,4 @@ class TestUtil(object):
         pass
 
     def test_pad_zero(self):
-        # assert Util.get("2020-03") == 0
-        pass
+        assert Util.remove_quote({"a": '"1"'}) == {"a": "1"}
