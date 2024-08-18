@@ -1,7 +1,7 @@
 [project]
 name = "streamlit-localstorage-bulk"
 version = "0.1.0"
-description = "Command Line utility for cost of aws."
+description = "Handles localstorage with Streamlit."
 authors = [{ name="Hiroshi Toyama", email="toyama0919@gmail.com" }]
 readme = "README.md"
 classifiers = [
@@ -13,6 +13,7 @@ classifiers = [
 keywords = [
   "streamlit",
   "tool",
+  "localstorage",
 ]
 requires-python = ">=3.8"
 dependencies = [
